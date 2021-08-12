@@ -14,7 +14,11 @@
             <time>{{ .Date.Format "January 2, 2006" }}</time>
             {{ " · " }}
           {{- end -}}
-          {{ .ReadingTime }} min read
+          {{- if not and (isset .Params "showreadingtime") (not Params.showreadingtime) }}
+            {{ .ReadingTime }} min read
+          {{- end }} 
+          {{.Params.showreadingtime}}
+          {{"hello"}}
         <div class="metadata">
     </header>
     <br>
