@@ -1,0 +1,23 @@
+{{ define "main" }}
+<article>
+    <header id="post-header">
+        <h2>{{ .Title }}</h2>
+        {{- if isset .Params "tags" -}}
+          <div class="tags">
+            {{- range .Params.tags}}
+              <span class="tag">#{{ . }}</span>
+            {{- end }}
+          </div>
+        {{- end -}}
+        <div class="metadata">
+          {{- if isset .Params "date" -}}
+            <time>{{ .Date.Format "January 2, 2006" }}</time>
+            {{ " · " }}
+          {{- end -}}
+          {{ .ReadingTime }} min read
+        <div class="metadata">
+    </header>
+    <br>
+    {{- .Content -}}
+</article>
+{{ end }}

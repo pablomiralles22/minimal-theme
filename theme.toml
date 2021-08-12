@@ -1,0 +1,12 @@
+name = "Minimal-Theme"
+license = "MIT"
+licenselink = "https://github.com/"
+description = "Minimal Hugo theme"
+homepage = "https://github.com/pablomiralles22/minimal-theme"
+tags = ["simple", "minimal", "clean", "fast", "blog", "responsive", "dark mode", "privacy"]
+features = ["fast", "blog", "syntax highlighting", "dark mode"]
+min_version = "0.41"
+
+[author]
+  name = "Pablo Miralles"
+  homepage = "https://pablomirallesg.com"
