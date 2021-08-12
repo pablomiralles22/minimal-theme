@@ -10,15 +10,13 @@
           </div>
         {{- end -}}
         <div class="metadata">
-          {{- if isset .Params "date" -}}
-            <time>{{ .Date.Format "January 2, 2006" }}</time>
-            {{ " · " }}
-          {{- end -}}
-          {{- if not and (isset .Params "showreadingtime") (not Params.showreadingtime) }}
+          {{- if not (isset .Params "mainpage") -}}
+            {{- if isset .Params "date" -}}
+              <time>{{ .Date.Format "January 2, 2006" }}</time>
+              {{ " · " }}
+            {{- end -}}
             {{ .ReadingTime }} min read
           {{- end }} 
-          {{.Params.showreadingtime}}
-          {{"hello"}}
         <div class="metadata">
     </header>
     <br>
