@@ -1,0 +1,32 @@
+{{ define "main" }}
+<h2>{{ .Title }}</h2>
+<ul id="posts" class="posts">
+  {{- range $index, $element := .Pages }}
+    {{ if $index }}<hr>{{ end }}
+    <li>
+      {{ .Title }}
+
+      <!-- TAGS -->
+      <small>
+        <div class="tags">
+          {{- range .Params.tags}}
+            <span class="tag">#{{ . }}</span>
+          {{- end }}
+        </div>
+      </small>
+      
+      <!-- LINKS -->
+      {{ $headless := and (isset .Params "headless") (eq .Params.headless true) }}
+      <!-- Go to page if not headless -->
+      {{ if not $headless }}
+      <a href="{{ .Permalink }}">Read more</a>
+      {{ end }}
+      {{- range $i, $e := .Params.links}}
+      {{ if or $i (not $headless) }} · {{ end }}
+      <a href="{{.link}}" target="_blank" rel="noreferrer noopener">{{ .title }}</a>
+      {{- end }}
+
+    </li>
+  {{- end }}
+</ul>
+{{ end }}
